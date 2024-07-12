@@ -3,7 +3,7 @@ services:
   vendor-portal:
     image: godvindockerhub/selenium
     environment:
-      - BROWSER=chrome
+      - BROWSER
       - HOST=hub
       - XMLFILE=vendor-portal.xml
       - RUN=4
@@ -12,7 +12,7 @@ services:
   flight-reservation:
     image: godvindockerhub/selenium
     environment:
-      - BROWSER=firefox
+      - BROWSER
       - HOST=hub
       - XMLFILE=flight-reservation2.xml
       - RUN=4

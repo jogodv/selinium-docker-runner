@@ -9,7 +9,7 @@ services:
     - hub
     env_file: .env
     deploy:
-      replicas: 2
+      replicas: 0
   firefox:
     image: seleniarm/node-firefox:4.16
     shm_size: '2g'
@@ -17,4 +17,4 @@ services:
     - hub
     env_file: .env
     deploy:
-      replicas: 2  
+      replicas: 0  
