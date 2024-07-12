@@ -1,35 +1,19 @@
 pipeline{
-    agent none
+    agent any
 
     stages{
         
-        stage('build jar'){
-            agent{
-                docker{
-                    image: image 'maven:3.9.3-eclipse-temurin-17-focal'
-                }
-             }
+        stage('RUN TEST'){
+            
             steps{
-                sh "mvn clean package -DskipTests"
+                bat "docker-compose up"
             }
 
         }
-        stage('build image'){
+       
+         stage('BRING GRID DOWN'){
             steps{
-                script{
-                    app= docker.build('godvindockerhub/selenium')
-                }
-                
-                
-            }
-            
-        }
-         stage('push image'){
-            steps{
-                script{
-                    app.push("latest")
-                }
-                
+                bat "docker-compose down"
                 
             }
             
