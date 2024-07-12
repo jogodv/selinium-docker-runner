@@ -1,0 +1,20 @@
+version: "3"
+services:
+  vendor-portal:
+    image: godvindockerhub/selenium
+    environment:
+      - BROWSER=chrome
+      - HOST=hub
+      - XMLFILE=vendor-portal.xml
+      - RUN=4
+    volumes:
+      - ./output.vendor-portal:/home/selenium-docker/test-output
+  flight-reservation:
+    image: godvindockerhub/selenium
+    environment:
+      - BROWSER=firefox
+      - HOST=hub
+      - XMLFILE=flight-reservation2.xml
+      - RUN=4
+    volumes:
+      - ./output.flight-reservation:/home/selenium-docker/test-output
